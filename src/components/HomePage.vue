@@ -11,8 +11,13 @@
 <script setup>
 import { onMounted, ref } from "vue";
 const varOne = ref(false)
+
+
+
 onMounted(() => {
     varOne.value = true
+ 
+    
     
 })
 
