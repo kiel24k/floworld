@@ -4,15 +4,15 @@
         <div class="login-form">
             <h1>Login your account now</h1>
             <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos error accusamus voluptatem harum doloribus eveniet pariatur nostrum eius sunt necessitatibus, possimus accusantium, amet quaerat laborum recusandae, modi sapiente blanditiis vitae!</small>
-            <form action="" @submit.prevent>
+            <form action="" @submit.prevent="submitLogin">
                
                 <div class="username-input">
                     <label for="">Username</label>
-                    <input type="text" placeholder="Enter Username" class="form-control">
+                    <input type="text" placeholder="Enter Username" class="form-control" v-model="input.email">
                 </div>
                 <div class="password-input">
                     <label for="">Password</label>
-                    <input type="text" placeholder="Enter password" class="form-control">
+                    <input type="text" placeholder="Enter password" class="form-control" v-model="input.password">
                 </div>
                 <div class="submit">
                     <button class="btn btn-primary">
@@ -30,12 +30,36 @@
    </transition>
 </template>
 <script setup>
+import axios from 'axios';
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+//animation transition
 const loginAnimation = ref(false)
 onMounted(() => {
   loginAnimation.value = true
 })
+
+const input = ref({
+    email: '',
+    password: ''
+})
+
+//login submit function
+const submitLogin = async () => {
+    await axios.get("/sanctum/csrf-cookie")
+    await axios.post("/login", {
+        email: input.value.email,
+        password: input.value.password
+    }).then(response => {
+        console.log(response);
+       if(response.status == 204){
+        router.push("/")
+       }
+    })
+    
+}
 
 </script>
 

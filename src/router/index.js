@@ -37,11 +37,13 @@ const routes = [
         path: '/signup', 
         name: 'SignupPage',
         component: () => import ('../components/signup.vue')
-    }
+    },
+     {
+        path: '/unauthorized', 
+        name: '401',
+        component: () => import ('../errors/401.vue')
+     }
 
-   
-
-   
 ];
 
 const router = createRouter({
