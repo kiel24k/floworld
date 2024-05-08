@@ -117,7 +117,7 @@ const register = async () => {
         first_name: inputs.value.firstName,
         last_name: inputs.value.lastName,
         email: inputs.value.email,
-        password: inputs.value.password,
+     password: inputs.value.password,
         birthday: inputs.value.birthday,
         gender: inputs.value.gender,
         age:22
@@ -136,11 +136,7 @@ const register = async () => {
         
     // }
 }
-
 )
-
-
-
 }
 
 

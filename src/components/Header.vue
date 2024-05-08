@@ -83,6 +83,10 @@ border-style: solid;
 border-color: rgb(56, 163, 196);
 border-width: 0;
 box-shadow: 0px 0px 20px 0px rgb(19, 123, 207);
+position:sticky;
+top:0;
+z-index:999;
+min-width: 100%;
 
 }
 ul{

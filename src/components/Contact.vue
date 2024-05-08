@@ -137,7 +137,7 @@ li{
     align-content: center;
     align-items: center;
     width:50%;
-    background-image: linear-gradient(180deg, rgb(18, 121, 95), rgb(65, 137, 219));
+    background-image:linear-gradient(to right, rgb(226, 38, 217) , rgb(245, 155, 94));
     padding:100px;
     border-top-right-redius:15px;
     border-bottom-right-radius: 15px;
