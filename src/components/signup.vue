@@ -109,6 +109,9 @@ const sanctumToken = async () => {
     await axios.get("/sanctum/csrf-cookie")
 
 }
+onMounted(() => {
+  
+})
 
 const errors = ref({})
 const register = async () => {
@@ -129,6 +132,7 @@ const register = async () => {
     }).catch(error => {
     if(error.response.status === 422){
      errors.value = error.response.data.errors
+     console.log(errors.value); 
     }
     
     // for (let x = 0; index < array.length; index++) {

@@ -55,6 +55,7 @@ const submitLogin = async () => {
     }).then(response => {
         console.log(response);
        if(response.status == 204){
+        localStorage.setItem("user", "authenticated")
         router.push("/")
        }
     })
