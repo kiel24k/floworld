@@ -25,7 +25,9 @@
                 <router-link class="nav-link" :to="{name: 'ContactPage'}">Contact</router-link>
             </li>
             <li class="nav-item">
-                    <img src="/public/icon/people.png" alt="" @click="profile">
+                <router-link class="nav-link" :to="{name: 'Profile'}">
+                    <img src="/public/icon/people.png" alt="">
+                </router-link>
             </li>
             <li class="nav-item">
                 <img src="/public/icon/checkout.png" alt="" id="checkout">

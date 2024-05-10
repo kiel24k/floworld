@@ -31,24 +31,52 @@ const routes = [
     {
         path: '/login', 
         name: 'LoginPage',
-        component: () => import ('../components/login.vue')
+        component: () => import ('../components/login.vue'),
+      
     },
     {
         path: '/signup', 
         name: 'SignupPage',
-        component: () => import ('../components/signup.vue')
+        component: () => import ('../components/signup.vue'),
+       
     },
      {
         path: '/unauthorized', 
         name: '401',
         component: () => import ('../errors/401.vue')
+     },
+     {
+        path: '/profile',
+        name: 'Profile',
+        component: () => import ('../components/Profile.vue'),
+        meta:{
+            requiresAuth: true
+        }
+        
      }
 
 ];
 
 const router = createRouter({
     history: createWebHistory(),
-    routes
+    routes,
+    scrollBehavior (to, from, savedPosition) {
+        return savedPosition || new Promise ((resolve => {
+            setTimeout(() => resolve({top:0, behavior: "smooth"}),1)
+        }))
+        return {top:null,left:null, behavior: null}
+    }
 })
 
+router.beforeEach((to, from, ) => {
+    const authLocalStorage = localStorage.getItem("user")
+    if(to.meta.requiresAuth && !authLocalStorage){
+        return{
+            name: "LoginPage"
+        }
+ }
+}
+)
+
 export default router;
+
