@@ -49,14 +49,17 @@
  //login submit function
  const submitLogin = async () => {
      await axios.get("/sanctum/csrf-cookie")
-     await axios.post("/login", {
+     await axios.post("/api/admin-login", {
          email: input.value.email,
          password: input.value.password
      }).then(response => {
-         console.log(response);
-        if(response.status == 204){
-         localStorage.setItem("user", "authenticated")
-         router.push("/")
+        if(response.data.message == 404){
+        alert("error");
+        }
+        else if(response.data.message == 200){
+         localStorage.removeItem("user")
+         localStorage.setItem("admin", "authenticated")
+         router.push("/admin-home")
         }
      })
      

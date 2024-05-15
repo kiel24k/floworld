@@ -57,6 +57,14 @@ const routes = [
         path: '/admin-login',
         name: 'AdminLogin',
         component: () => import ('../components/admin/AdminLogin.vue')
+     },
+     {
+        path: '/admin-home',
+        name: 'AdminHome',
+        component: () => import ('../components/admin/Home.vue'),
+        meta: {
+            adminAuth: true
+        }
      }
 
 ];
@@ -74,12 +82,24 @@ const router = createRouter({
 
 router.beforeEach((to, from, ) => {
     const authLocalStorage = localStorage.getItem("user")
+    const adminAuthLocalStorage = localStorage.getItem("admin")
     if(to.meta.requiresAuth && !authLocalStorage){
         return{
             name: "LoginPage"
         }
  }
+    if(to.meta.adminAuth && !adminAuthLocalStorage){
+        return {
+         name: "AdminLogin"
+        }
+    }
 }
+
+
+// router.beforeEach((to, from,) => {
+//     const authLocalStorage = 
+
+// })
 )
 
 export default router;
