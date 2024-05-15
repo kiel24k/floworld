@@ -1,5 +1,5 @@
 <template>
-    <div class="row">
+    <div class="row navigation-bar">
         <div class="col">
             <ul class="navbar nav item-one">
                 <li class="nav-item">
@@ -7,33 +7,40 @@
                 </li>
             </ul>
         </div>
-        <div class="col two">
-          <ul class="navbar nav">
-            <li class="nav-item">
-                <router-link class="nav-link" :to="{name: 'HomePage'}">Home</router-link>
-            </li>
-            <li class="nav-item">
-                <router-link class="nav-link" :to="{name: 'ProductPage'}">Product</router-link>
-            </li>
-            <li class="nav-item">
-                <router-link class="nav-link" :to="{name: 'AboutUsPage'}">About Us</router-link>
-            </li>
-            <li class="nav-item">
-                <router-link class="nav-link" :to="{name: 'BlogPage'}">Blog</router-link>
-            </li >
-            <li class="nav-item">
-                <router-link class="nav-link" :to="{name: 'ContactPage'}">Contact</router-link>
-            </li>
-            <li class="nav-item">
-                <router-link class="nav-link" :to="{name: 'Profile'}">
-                    <img src="/public/icon/people.png" alt="">
-                </router-link>
-            </li>
-            <li class="nav-item">
-                <img src="/public/icon/checkout.png" alt="" id="checkout">
-            </li>
-          </ul>
-        </div>
+
+        <button class="burger btn btn-info" @click="burger">
+            <h1>=</h1>
+        </button>
+
+        <transition name="showItemTransition">
+            <div class="col navTwo">
+                <ul class="navbar nav ">
+                  <li class="nav-item">
+                      <router-link class="nav-link" :to="{name: 'HomePage'}">Home</router-link>
+                  </li>
+                  <li class="nav-item">
+                      <router-link class="nav-link" :to="{name: 'ProductPage'}">Product</router-link>
+                  </li>
+                  <li class="nav-item">
+                      <router-link class="nav-link" :to="{name: 'AboutUsPage'}">About Us</router-link>
+                  </li>
+                  <li class="nav-item">
+                      <router-link class="nav-link" :to="{name: 'BlogPage'}">Blog</router-link>
+                  </li >
+                  <li class="nav-item">
+                      <router-link class="nav-link" :to="{name: 'ContactPage'}">Contact</router-link>
+                  </li>
+                  <li class="nav-item">
+                      <router-link class="nav-link" :to="{name: 'Profile'}">
+                          <img src="/public/icon/people.png" alt="">
+                      </router-link>
+                  </li>
+                  <li class="nav-item">
+                      <img src="/public/icon/checkout.png" alt="" id="checkout">
+                  </li>
+                </ul>
+              </div>
+        </transition>
     </div>
 
     <div class="profile" v-if="profileModal">
@@ -65,11 +72,17 @@ import { ref } from 'vue';
    const profile = () => {
     profileModal.value = true
    }
-
-   
-
    const closeModal = () =>{
     profileModal.value = false
+   }
+
+   const burger = () => {
+    let navTwo = document.querySelector(".navTwo")
+    navTwo.classList.add("showItem")
+    console.log(navTwo);
+   
+    
+   
    }
 
 </script>
@@ -89,7 +102,7 @@ position:sticky;
 top:0;
 z-index:999;
 min-width: 100%;
-
+display: flex;
 }
 ul{
     display: flex;
@@ -114,6 +127,7 @@ a{
     justify-content: flex-start;
     margin-left:7rem
 }
+
 .nav-item{
     cursor: pointer;
 }
@@ -173,5 +187,59 @@ a{
     border-radius: 5px;
     border:0;
     background: rgb(228, 93, 93);
+}
+.burger{
+    display: none;
+}
+.navtwo{
+    transition: all linear 2s;
+    background: red;
+}
+@media screen and (max-width: 1600px) {
+    .navTwo{
+        display: none;
+        transition: all linear 2s;
+        background: red;
+    }
+    .navTwo ul{
+        display:grid ;
+        justify-content: center;
+        align-content: center;
+    }
+   
+    .burger{
+       display: block;
+       position:absolute;
+       width:5rem;
+       right:0;
+      
+    }
+    .nation-bar{
+        display: flex;
+    }
+    .two{
+        display: flex;
+        justify-content: end;
+    }
+    .showItem{
+        display: grid;
+        background: rgb(241, 241, 241);
+        width: 20rem;
+        position:absolute;
+        right:0;
+        height:max-content;
+        transition: all linear 2s;
+    }
+    .showItemTransition-enter-from, 
+    .showItemTransition-leave-to {
+        background: rgb(46, 43, 43);
+    }
+    
+    
+    
+    
+    
+    
+    
 }
 </style>

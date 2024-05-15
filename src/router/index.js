@@ -52,7 +52,11 @@ const routes = [
         meta:{
             requiresAuth: true
         }
-        
+     },
+     {
+        path: '/admin-login',
+        name: 'AdminLogin',
+        component: () => import ('../components/admin/AdminLogin.vue')
      }
 
 ];

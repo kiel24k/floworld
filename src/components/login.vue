@@ -18,6 +18,9 @@
                     <button class="btn btn-primary">
                         Login
                     </button>
+                 <router-link :to="{name: 'AdminLogin'}">
+                    <button class="btn btn-info mt-2">Login as admin</button>
+                 </router-link>
                 </div>
                 <div class="login-info">
                     <router-link :to="{name: 'SignupPage'}">Don't Have an account yet?</router-link>

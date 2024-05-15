@@ -22,6 +22,11 @@
     <transition>
     <div class="product">
         <section>
+            <span>
+                <button>prev</button>
+                <b>1,2,3,4,5,6,7</b>
+                <button>Next</button>
+            </span>
             <div class="shrubs">
                 <h1>Shrubs</h1>
             </div>
@@ -52,10 +57,8 @@ const flowers = ref({})
 const shrubs = ref({})
 
 onMounted(() => {
-   
     fetch("./jsonData/flowers.json").then(response => response.json())
     .then((data) => flowers.value = data.flowerlist)
-
     console.log(flowers.value);
 })
 
@@ -86,6 +89,7 @@ section:nth-child(1){
     box-shadow: 1px 1px 15px 1px gray;
     transition: linear all 0.1s;
     cursor: pointer;
+    height: 20rem;
 }
 .shrubs-item:hover{
     transform: scale(1.1);

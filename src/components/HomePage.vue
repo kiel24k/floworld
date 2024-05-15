@@ -3,7 +3,7 @@
         <div class="first" v-if="varOne" id="first">
          
           <section class="">
-             <div class="row">
+             <div class="row bg-info">
                 <div class="col-7 section-one-description">
                 <h1>Uniquely Pink Blooms</h1>
                 <h1> A Special Touch The</h1>
@@ -26,7 +26,7 @@
                     <button class="btn">Add to cart</button>
                 </div>
                 </div>
-                <div class="col  section-one-image-item">
+                <div class="col section-one-image-item bg-danger">
                  <img src="/src/assets/items/Portrait-Floral-Frame-_225.webp" alt="">
                 </div>
              </div>
@@ -37,57 +37,7 @@
             <h1>Catalog</h1>
           </div>
 
-          <section class="offer">
-            <div class="row">
-                <div class="col-7 coming-offer">
-                    <h3>Up Coming Offer</h3>
-                    <h1>Your One - Stop</h1>
-                    <h1>Flower Shop</h1>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In recusandae atque incidunt a optio autem, aspernatur laborum </p>
-                    <button class="btn btn-danger">Learn More</button>
-                </div>
-                <div class="col discount">
-                    <div class="row">
-                        <p>Up to 30% Off</p>
-                        <h1>Red Rose</h1>
-                        <button class="btn">Shop Now</button>
-                    </div>
-                    <div class="row">
-                        <p>Up to 20% Off</p>
-                        <h1>White Rose</h1>
-                        <button class="btn">Shop Now</button>
-                    </div>
-                </div>
-            </div>
 
-          </section>
-
-          <section class="">
-            <div class="row catalog-2">
-                <div class="col-7 m-2 bloom">
-                    <div class="bloom-content">
-                        <h1>The Bloom Box Your</h1>
-                        <h1>Source For Stunning</h1>
-                        <h1>Flowers</h1>
-                        <button class="btn">Learn More</button>
-                    </div>
-                    <div class="row mt-4 image-content-1">
-                        <div class="col">
-                            <img src="/src/assets/items/red-base.jpg" height="325px" width="400px" alt="">
-                        </div>
-                        <div class="col">
-                            <img src="/src/assets/items/red-base.jpg" height="325px" width="400px" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col m-2 image-content-2">
-                    <img src="/src/assets/items/red-base.jpg" width="600px" alt="">
-                </div>
-            </div>
-             
-          </section>
-           
         </div>  
     </transition>
 </template>
@@ -140,9 +90,10 @@ onMounted(() => {
     transform: translateY(20%);
     opacity:0; 
 }
-.row{
+section .row{
     display: flex;
-    flex-wrap: wrap;
+    max-width: max-content;
+    margin:auto;
 }
 section {
     margin-left: 10rem;
@@ -151,6 +102,10 @@ section {
     background: rgb(255, 255, 255, 0.1);
     border-radius: 5px;
     padding:5px;
+}
+section:nth-child(1){
+    max-width: 100%;
+    
 }
 .section-one-description > *{
 max-width: 70%;
@@ -177,7 +132,8 @@ height:33rem;
     display: flex;
     gap:1rem;
     padding:5px;
-    background: rgb(226, 224, 224);
+    background: rgb(231, 228, 228);
+    max-width: max-content;
   
     
 }
@@ -205,109 +161,6 @@ height:33rem;
     background-image: linear-gradient(to right, rgb(226, 38, 217) , rgb(223, 108, 32));
     color: transparent;
     background-clip: text;
-}
-.offer > .row{
-    display: flex;
-    gap:10px;
-}
-.coming-offer{
-    display: grid;
-    justify-content: start;
-    background-image: url("/public/background-image/white-flower-right-side-white-background-ai-generative_206846-2232.avif");
-    background-position: 100%;
-    background-repeat: no-repeat;
-    background-color: #ececec;
-    height:25rem;
-    border-radius: 10px;
-    box-shadow: 1px 0px 20px 0px rgb(221, 219, 221);
-    
-}
-.coming-offer h1{
-    font-weight: bold;
-}
-.coming-offer button{
-    max-width: 10rem;
-    background-image: linear-gradient(to right, rgb(226, 38, 217) , rgb(245, 155, 94));
-    padding:10px;
-    border: 0 ;
-}
-.coming-offer > *{
-    max-width: 28rem;
-}
-.discount {
-    display: grid;
-    gap:10px;
-  
-}
-.discount > div h1{
-    font-weight: bold;
-   
-    
-}
-.discount > .row button{
-    width: 10rem;
-    margin-left:10px;
-    background-image: linear-gradient(to right, rgb(226, 38, 217) , rgb(245, 155, 94));
-    border:0;
-    border-radius: 10px;
-    color:white;
-   
-}
-.discount > div:nth-child(1){
-    background-image: url('/public/background-image/luxurious-background-with-deep-red-roses-green-leaves-arranged-right-left-side-image_878783-7337.avif');
-    background-position: 100%;
-    background-repeat: no-repeat;
-    background-color: white;
-    box-shadow: 1px 0px 20px 0px rgb(221, 219, 221);
-
-    
-   
-}
-.discount > div:nth-child(2){
-    background-image: url('/public/background-image/decorative-frame-wreath-white-roses-floral-arrangement-isolated_273893-4196.avif');
-    background-position-y: 60%;
-    background-position: 100%;
-    background-repeat: no-repeat;
-    background-color: white;
-    box-shadow: 1px 0px 20px 0px rgb(221, 219, 221);
-}
-.bloom{
- 
-}
-.discount .row{
-    border-radius: 20px;
-    padding:10px;
-}
-.catalog-2{
-    height: 40rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap:1px;
-}
-
-.bloom-content{
-    background: rgb(240, 238, 238);
-    height: 250px;
-    border-radius: 15px;
-    max-width: 54rem;
-    box-shadow: 1px 0px 20px 0px rgb(221, 219, 221);
-    
-}
-.image-content-1 img{
-    box-shadow: 1px 0px 20px 0px rgb(221, 219, 221);
-    border-radius: 15px;
-   
-
-}
-.image-content-2 img{
-    border-radius: 15px;
-    box-shadow: 1px 0px 20px 0px rgb(221, 219, 221);
-}
-.bloom-content button{
-    background-image: linear-gradient(to right, rgb(226, 38, 217) , rgb(245, 155, 94));
-    border:0;
-    color:white;
-    padding:10px;
 }
 
 
