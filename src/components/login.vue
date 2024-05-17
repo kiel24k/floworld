@@ -1,4 +1,5 @@
 <template>
+    <Header/>
    <transition name="login-transition">
     <div class="logins" v-if="loginAnimation">
         <div class="login-form">
@@ -33,9 +34,11 @@
    </transition>
 </template>
 <script setup>
+import Header from "./Header.vue";
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router'
+
 
 const router = useRouter()
 //animation transition
@@ -56,7 +59,6 @@ const submitLogin = async () => {
         email: input.value.email,
         password: input.value.password
     }).then(response => {
-        console.log(response);
        if(response.status == 204){
         localStorage.setItem("user", "authenticated")
         router.push("/")

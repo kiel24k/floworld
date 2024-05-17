@@ -1,4 +1,5 @@
 <template>
+    <Header/>
     <transition name="slide">
         <div class="slideMe" v-if="slideMe">
     <div class="row mainrow"> 
@@ -89,6 +90,7 @@
 
 <script setup>
 import { onMounted,ref } from 'vue';
+import Header from "./Header.vue";
 
 const slideMe = ref(false)
 onMounted(() => {

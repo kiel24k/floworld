@@ -41,7 +41,7 @@ const routes = [
        
     },
      {
-        path: '/unauthorized', 
+        path: '/:unauthorized(.*)*', 
         name: '401',
         component: () => import ('../errors/401.vue')
      },
@@ -56,16 +56,21 @@ const routes = [
      {
         path: '/admin-login',
         name: 'AdminLogin',
-        component: () => import ('../components/admin/AdminLogin.vue')
+        component: () => import ('../components/AdminLogin.vue')
      },
+     //admin
      {
         path: '/admin-home',
         name: 'AdminHome',
-        component: () => import ('../components/admin/Home.vue'),
+        component: () => import ('../admin/Home.vue'),
         meta: {
             adminAuth: true
         }
-     }
+     },
+     
+       
+    
+     
 
 ];
 

@@ -1,4 +1,5 @@
 <template>
+    <Header/>
     <!-- <table class="table table-bordered">
         <thead>
             <tr>
@@ -45,7 +46,7 @@
 </template>
 
 <script setup>
-
+import Header from "./Header.vue";
 import { onMounted, ref, } from "vue";
 
 

@@ -1,4 +1,5 @@
 <template>
+    <Header/>
    <transition name="about-us">
     <div class="about-us" v-if="about">
         <section class="">
@@ -32,6 +33,7 @@
 
 <script setup>
 import { onMounted, ref } from 'vue';
+import Header from "./Header.vue";
 
 
 const about = ref(false)
