@@ -1,4 +1,6 @@
 <template>
+    <Header/>
+    <router-view></router-view>
     <transition name="slide">
         <div class="first" v-if="varOne" id="first">
          
@@ -43,6 +45,7 @@
 </template>
 
 <script setup>
+import Header from "./Header.vue";
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import { useRouter } from 'vue-router'

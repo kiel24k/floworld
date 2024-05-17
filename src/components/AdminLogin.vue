@@ -2,7 +2,7 @@
     <transition name="login-transition">
      <div class="logins" v-if="loginAnimation">
          <div class="login-form">
-             <h1>Login your account now</h1>
+             <h1>Login your Admin Account now</h1>
              <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos error accusamus voluptatem harum doloribus eveniet pariatur nostrum eius sunt necessitatibus, possimus accusantium, amet quaerat laborum recusandae, modi sapiente blanditiis vitae!</small>
              <form action="" @submit.prevent="submitLogin">
                 
