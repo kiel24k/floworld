@@ -39,12 +39,13 @@
   position:sticky;
   top:0;
   z-index:999;
-  backdrop-filter: blur(20px);
+  background: rgb(255, 243, 243);
+  
   
 
 }
 .row{
- background: rgba(233, 229, 229, 0.5);
+ background: rgba(255, 255, 255, 0.5);
 }
 .section-one{
   display: flex;

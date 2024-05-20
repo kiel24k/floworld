@@ -67,6 +67,21 @@ const routes = [
             adminAuth: true
         }
      },
+     {
+        path: '/add-product',
+        name: 'AddProduct',
+        component: () => import ('../admin/AddProduct.vue')
+     },
+     {
+        path: '/product-list',
+        name: 'ProductList',
+        component: () => import ('../admin/Products.vue')
+     },
+     {
+        path: '/update-product',
+        name: 'update-product',
+        component: () => import ('../admin/UpdateProduct.vue')
+     }
      
        
     
