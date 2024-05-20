@@ -12,7 +12,9 @@
                     <b> {{ data.first_name }} {{ data.last_name }}</b>
                 </div>
                 <div class="col">
-                    <button class="btn btn-primary">Add Product</button>
+                    <router-link :to="{name: 'AddProduct'}">
+                        <button class="btn btn-primary">Add Product</button>
+                    </router-link>
                 </div>
             </div>
             <div class="row">
@@ -175,7 +177,7 @@ onMounted(() => {
     max-width: 12rem;
 }
 .content{
-    background: rgb(213, 233, 241);
+    background: rgb(221, 233, 238);
     display: grid;
     gap:30px;
 }
