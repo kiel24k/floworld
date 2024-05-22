@@ -3,6 +3,7 @@
    <transition name="about-us">
     <div class="about-us" v-if="about">
         <section class="">
+            <img src="/public/background-image/UxAbout.png" class="mt-2 img-fluid"  alt="">
             <div class="our-strategy">
                 <b>Why Choosing Us</b>
             <h2 class="strat-title">Our Strategy is very  personalized</h2>
@@ -47,6 +48,7 @@ onMounted(() => {
 .about-us{
     transform: translate(0);
     transition: all linear 0.4s;
+    background: #e4ebf7;
     
 }
 
@@ -62,6 +64,7 @@ section:nth-child(1){
     justify-content: center;
     text-align: center;
     gap:1rem;
+    background: #e4ebf7;
 }
 .our-strategy{
     max-width: 60%;

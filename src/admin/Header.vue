@@ -25,6 +25,7 @@
                 <img src="/public/icon/notification.png" alt="">
               </router-link>
             </li>
+                  <img src="/public/icon/exit.svg" width="30px" alt="" @click="logout">
           </ul>
         </div>
       </div>
@@ -32,6 +33,16 @@
 </template>
 
 <script setup>
+import axios from 'axios';
+import {useRouter} from 'vue-router'
+const router = useRouter()
+
+
+const logout = () => {
+       localStorage.removeItem("user")
+       localStorage.removeItem("admin")
+       router.push("/")
+}
 </script>
 
 <style scoped>

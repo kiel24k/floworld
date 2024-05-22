@@ -18,11 +18,7 @@ const routes = [
         name: 'AboutUsPage',
         component: () => import ('../components/AboutUs.vue')
     },
-    {
-        path: '/blog', 
-        name: 'BlogPage',
-        component: () => import ('../components/BlogPage.vue')
-    },
+   
     {
         path: '/contact', 
         name: 'ContactPage',

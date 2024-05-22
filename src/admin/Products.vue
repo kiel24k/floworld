@@ -8,78 +8,38 @@
             <div class="row">
                 <div class="products-header">   
                     <div class="col"><h3>Products</h3></div>
-                    <div class="col text-end"><button class="btn btn-primary">Add</button></div>
+                    
                 </div>
-            </div>
-
-            <div class="product-list">
-                <UpdateProduct name="kiel" :id="productId" @hideModal="updateModal = false" v-if="updateModal"/>
-                <table class="table table-light table-bordered table-hover table-responsive">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Category</th>
-                            <th>Size</th>
-                            <th>Date Added</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="product in productList" :key="product">
-                           
-                            <td><b>{{ product.product_name }}</b></td>
-                            <td>{{product.description}}</td>
-                            <td>{{ product.quantity }}</td>
-                            <td class="price"><b>{{ product.price}}</b></td>
-                            <td>{{ product.category }}</td>
-                            <td>{{ product.size }}</td>
-                            <td>{{product.date_added}}</td>
-                            <td>
-                                <span class="action">
-                                    <button @click="update(id = product.id  )"><img src="/public/icon/edit.svg" width="15" alt=""></button>
-                                    <button><img src="/public/icon/delete.svg" width="15" alt=""></button>
-                                </span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-            </div>
-
+            </div>    
+            <div class="text-error" v-if="errorCap">
+                {{ errorCap }}
+            </div> 
+           <Suspense v-else>
+                <template #default>
+                    
+                    <ProductList/>
+                </template>
+                <template #fallback>
+                    <div class="text-center">
+                        <h1>Loading</h1>
+                    </div>
+                </template>
+            </Suspense>
         </div>
     </div>
 </template>
 
 <script setup>
-import axios from 'axios';
+import ProductList from './ProductList.vue'
 import Header from './Header.vue'
 import Sidebar from './Sidebar.vue'
-import { onMounted,onBeforeMount, ref } from 'vue';
-import UpdateProduct from './UpdateProduct.vue';
+import { onErrorCaptured, ref } from 'vue'
 
-const productList = ref({})
-onMounted(async ()=> {
-    await axios.get('/api/product-list').then(response => {
-        productList.value = response.data
-    })
+const errorCap = ref(false)
+onErrorCaptured(() => {
+    errorCap.value = 'Something went wrong'
 })
 
-const updateModal = ref(false)
-let productId;
-let update = (id) => {
-    updateModal.value = true
-    productId = id
-}
-onMounted(() => {
-    let ss = document.querySelector(".sidebar")
-    console.log(ss);
-  
-   
-   
-})
 </script>
 
 <style scoped>

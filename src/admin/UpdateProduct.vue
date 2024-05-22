@@ -62,7 +62,7 @@ const route = useRouter()
 
 // const dif = defineProps(['hideModal'])
 const hideModal = defineEmits(['hideModal'])
-const props = defineProps(['name', 'id'])
+const props = defineProps(['name', 'id', 'list'])
 
 
 onMounted(() => {
@@ -97,7 +97,8 @@ const submit = async () => {
         category: productData.value.category
     }).then(response => {
        if(response.status == 200){
-        route.go()
+        closeModal()
+        props.list()
        }
     }).catch(error =>{
         console.log(error);

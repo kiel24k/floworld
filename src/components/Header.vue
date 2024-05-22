@@ -25,12 +25,6 @@
                       <router-link class="nav-link" :to="{name: 'AboutUsPage'}">About Us</router-link>
                   </li>
                   <li class="nav-item">
-                      <router-link class="nav-link" :to="{name: 'BlogPage'}">Blog</router-link>
-                  </li >
-                  <li class="nav-item">
-                      <router-link class="nav-link" :to="{name: 'ContactPage'}">Contact</router-link>
-                  </li>
-                  <li class="nav-item">
                       <router-link class="nav-link" :to="{name: 'Profile'}">
                           <img src="/public/icon/people.png" alt="">
                       </router-link>
@@ -234,12 +228,6 @@ a{
     .showItemTransition-leave-to {
         background: rgb(46, 43, 43);
     }
-    
-    
-    
-    
-    
-    
     
 }
 </style>

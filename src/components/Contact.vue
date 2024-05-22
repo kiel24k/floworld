@@ -1,5 +1,4 @@
 <template>
-    <Header/>
     <transition name="slide">
         <div class="slideMe" v-if="slideMe">
     <div class="row mainrow"> 
