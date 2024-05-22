@@ -1,45 +1,14 @@
 <template>
     <Header/>
-    <!-- <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Instructions</th>
-                <th>name</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="flower in flowers" :key="flower">
-                <td style=" background-image: linear-gradient(to right, rgb(226, 38, 217) , rgb(245, 155, 94));width:150px; color:white;">{{ flower.category }}</td>
-                <td style="background-color:green;color:white">{{ flower.price }}</td>
-                <td style="width:250px;height: 10rem;">{{ flower.instructions }}</td>
-                <td>{{ flower.name }}</td>
-            </tr>
-        </tbody>
-
-    </table> -->
-
+   
     <transition>
     <div class="product">
         <section>
-            <span>
-                <button>prev</button>
-                <b>1,2,3,4,5,6,7</b>
-                <button>Next</button>
-            </span>
-            <div class="shrubs">
-                <h1>Shrubs</h1>
-            </div>
-            <div class="shrubs-content">
-                <div class="shrubs-item" v-for="flower in flowers" :key="flower">
-                    <span>
-                        <img src="/public/icon/plant.png" width="210" alt="">
-                        <b>{{flower.price}}</b>
-                    </span>
-                    <h2>{{flower.name}}</h2>
-                </div>
-            </div>
+            <!-- <Bootstrap5Pagination
+            :data="laravelData"
+            @pagination-change-page="getResults"
+        /> -->
+        
         </section>
     </div>
     </transition>
@@ -48,6 +17,7 @@
 <script setup>
 import Header from "./Header.vue";
 import { onMounted, ref, } from "vue";
+import { Bootstrap5Pagination } from 'laravel-vue-pagination';
 
 
 
