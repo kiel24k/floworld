@@ -34,7 +34,7 @@
                 <tr v-for="product in productList.data" :key="product">
                     <td>
                         <span>
-                            <img :src="`http://127.0.0.1:8000/storage/products/${product.image}`" width="50px" alt="">
+                            <img :src="`http://127.0.0.1:8000/products/${product.image}`" width="50px" height="50px" alt="">
                             <b>{{ product.product_name }}</b>
                         </span>
                     </td>
@@ -43,11 +43,15 @@
                     <td class="price"><b>{{ product.price}}</b></td>
                     <td>{{ product.category }}</td>
                     <td>{{ product.size }}</td>
-                    <td>{{product.date_added}}</td>
+                    <td>
+                        <div class="alert alert-info text-center date-added">
+                            {{product.date_added}}
+                        </div>
+                    </td>
                     <td>
                         <span class="action">
                             <button @click="update(id = product.id  )"><img src="/public/icon/edit.svg" width="15" alt=""></button>
-                            <button @click.prevent="deleteProduct(id = product.id)"><img src="/public/icon/delete.svg" width="15" alt=""></button>
+                            <button @click.prevent="deleteProduct(id = product.id)"><img src="/public/icon/delete.svg" width="20px" alt=""></button>
                         </span>
                     </td>
                 </tr>
@@ -71,13 +75,12 @@ const imageUrl = ref({})
 const productList = ref({})
 const inputSearch = ref('')
 
-
-
 const sheesh = onMounted(async (page = 1)=> {
     await axios.get(`/api/product-list?page=${page}`).then(response => {
         productList.value = response.data
     })
 })
+
 const updateModal = ref(false)
 let productId;
 let update = (id) => {
@@ -85,31 +88,21 @@ let update = (id) => {
     productId = id
 }
 
-
 watch(inputSearch, async() => {
     await axios.get(`/api/product-list?search=${inputSearch.value}`).then(response => {
         productList.value = response.data
-    })
-
-   
+    }) 
 })
-
-
-
-
 
 const deleteProduct = async (id) => {
     await axios.delete(`/api/delete-product/${id}`).then(response => {
-        
         if(response.status = 200){
             alert("success")
             sheesh()
         }
-
     }).catch(err => {
         console.log(err);
     })
-    
   }
 </script>
 <style scoped>
@@ -131,7 +124,11 @@ const deleteProduct = async (id) => {
 td{
     padding:10px;
     border:0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 th{
     text-transform: uppercase;
     border:0;
@@ -139,12 +136,22 @@ th{
 table{
     border:solid 1px rgb(196, 196, 196);
     box-shadow: 0px 0px 20px 0px gray;
-    width: 90%;
+    width: 100%;
     margin:auto;
     letter-spacing:0.5px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-transform: capitalize;
+    table-layout:auto;
 }
+.date-added{
+    font-size: small;
+    font-weight: bold;
+    width:max-content;
+    border:none;
+    border-radius: 20%;
+    text-align:center;
+}
+
 .price{
     color:green;
 }

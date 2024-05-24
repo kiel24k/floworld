@@ -8,7 +8,7 @@
               </button>
              
           </div>
-         <form action="" @submit.prevent="submit">
+         <form action="" @submit.prevent="submit" enctype="multipart/form-data">
            
             <input type="hidden" v-model="productData.id" name="" id="">
           <div class="product-name form-group">
@@ -29,7 +29,7 @@
           <div class="product-size form-group">
               <label for=""><b>Size</b></label>
               <select class="form-select" name="" id="">
-                  <option value="">XL</option>
+                  <option value=""></option>
                   <option value="">L </option>
                   <option value="">M</option>
                   <option value="">S</option>
@@ -37,13 +37,23 @@
           </div>
           <div class="date-update form-group">
               <label for=""><b>Date update</b></label>
-              <input type="text" class="form-control" >
+              <div class="alert alert-info">
+                {{ newDate }}
+              </div>
           </div>
           <div class="product-description form-group">
             <label for=""><b>Product Description</b></label>
             <br>
             <textarea class="form-control" cols="40" rows="10" v-model="productData.description"></textarea>
           </div>
+
+          <div class="product-price form-group">
+            <label for=""><b>Image</b></label>
+            <input type="file" class="form-control" accept="image/*" @change="image" multiple>
+            <img v-if="imageUrl" :src="imageUrl" alt="Selected Image" width="150px" height="100px" />
+
+           
+        </div>
          <div class="submit text-end mt-3">
             <button class="btn btn-primary">Update</button>
          </div>
@@ -55,7 +65,7 @@
 
 <script setup>
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 const route = useRouter()
@@ -63,19 +73,38 @@ const route = useRouter()
 // const dif = defineProps(['hideModal'])
 const hideModal = defineEmits(['hideModal'])
 const props = defineProps(['name', 'id', 'list'])
-
-
+const d = new Date()
+const productData = ref({
+    product_name: '',
+    description: '',
+    quantity: '',
+    price: '',
+    image: null,
+    category: '',
+    size: '',
+    date_added: d.toLocaleDateString()
+})
+let newDate = d.toLocaleDateString()
+const file = ref(null);
+const fileName = ref('');
+const imageUrl = ref('');
+const image = (event) => {
+    const selectedFile = event.target.files[0];
+      if (selectedFile) {
+        file.value = selectedFile;
+        fileName.value = selectedFile.name;
+        imageUrl.value = URL.createObjectURL(selectedFile);
+}
+}
 onMounted(() => {
- console.log(props);
  getProduct()
- console.log(productData.value.product_name);
 })
 const closeModal = () => {
     hideModal('hideModal')
 }
 
 
-const productData = ref({})
+
 const getProduct = async () => {
     await axios.get(`/api/product-update-list/${props.id}`).then(response => {
         productData.value = response.data.data
@@ -85,8 +114,14 @@ const getProduct = async () => {
 
 
 
-const submit = async () => {
-   
+const submit = async (e) => {
+    e.preventDefault();
+    const config = {
+    headers: {
+        'content-type': 'multipart/form-data'
+    }
+}
+
     await axios.get('/sanctum/csrf-cookie')
     await axios.post(`/api/update-product/${productData.value.id}`,{
         product_name: productData.value.product_name,
@@ -94,8 +129,10 @@ const submit = async () => {
         price: productData.value.price,
         size: productData.value.size,
         description: productData.value.description,
-        category: productData.value.category
-    }).then(response => {
+        category: productData.value.category,
+        date_added: productData.value.date_added,
+        image: file.value
+    },config).then(response => {
        if(response.status == 200){
         closeModal()
         props.list()
