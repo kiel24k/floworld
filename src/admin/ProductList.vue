@@ -4,10 +4,7 @@
        <div class="container mb-4">
         <div class="row table-top">
             <div class=" col input">
-               
                     <input type="text" class="form-control" v-model="inputSearch" placeholder="Search">
-                
-               
             </div>
             <div class="col add-product text-end">
                 <router-link :to="{name:'AddProduct'}">
