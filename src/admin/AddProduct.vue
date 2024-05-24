@@ -89,7 +89,9 @@
                                 <option value="S">S</option>
                             </select>
                             <label for="">Product date</label>
-                            <input type="text" class="form-control" v-model="product.date_added" value="Data today">
+                           <div class="alert alert-info">
+                            {{ product.date_added }}
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -112,11 +114,10 @@ import Header from '../admin/Header.vue'
 import Sidebar from '../admin/Sidebar.vue'
 import axios from 'axios';
 import { useRouter } from 'vue-router';
-
 const route = useRouter()
 
 
-
+const d =  new Date();
 const product = ref({
     product_name: '',
     description: '',
@@ -125,27 +126,22 @@ const product = ref({
     image: null,
     category: '',
     size: '',
-    date_added:''
+    date_added: d.toLocaleDateString()
 })
 
 const file = ref(null);
 const fileName = ref('');
 const imageUrl = ref('');
 const image = (event) => {
-   
     const selectedFile = event.target.files[0];
-    
       if (selectedFile) {
         file.value = selectedFile;
         fileName.value = selectedFile.name;
         imageUrl.value = URL.createObjectURL(selectedFile);
-       
-        
 }
 }
 const submit = async (e) => {
 e.preventDefault();
-console.log(file.value);
 const config = {
     headers: {
         'content-type': 'multipart/form-data'
