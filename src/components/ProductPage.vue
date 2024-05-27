@@ -30,26 +30,23 @@
         </section>
 
         <section class="container">
-            <router-link class="nav-link">
-                
+            
+                <div class="not-found">
+                    <h1> {{ notFound }}</h1>
+                 </div>
                 <div class="product">
-
-                   
-                    <div class="not-found">
-                       <h1> {{ notFound }}</h1>
-                    </div>
-                    
-
                     <div class="flower-item" v-for="flower in items.data" :key="flower">
+                        <router-link class="nav-link" :to="{ name: 'CheckProduct', params: {product_name: flower.product_name } }">
                         <div class="">
                             <img :src="`http://127.0.0.1:8000/products/${flower.image}`" width="200px" height="200px" alt=""></div>
                         <div class="price">
                             <b>{{flower.product_name}}</b>
                         <p>123.00</p>
                         </div>
+                    </router-link>
                     </div>
                 </div>
-            </router-link>
+            
             <div class="pagination text-center justify-content-center mt-4">
                 <Bootstrap5Pagination
                 :data="items"
@@ -171,6 +168,7 @@ section:nth-child(1){
     flex-wrap: wrap;
     gap:15px;
     justify-content: center;
+    
     
 }
 .price{

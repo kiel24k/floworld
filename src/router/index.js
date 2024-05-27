@@ -77,6 +77,11 @@ const routes = [
         path: '/update-product',
         name: 'update-product',
         component: () => import ('../admin/UpdateProduct.vue')
+     },
+     {
+        path: '/check-product/:product_name',
+        name:'CheckProduct',
+        component: () => import ('../components/CheckProduct.vue'),
      }
      
        
