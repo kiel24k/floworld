@@ -20,7 +20,7 @@
               <li class="nav-item">
                 <span>
                   <img src="/public/icon/categories.svg" width="25px" alt="">
-                  <router-link :to="{name: 'AdminHome'}" class="nav-link text-dark">
+                  <router-link :to="{name: 'AdminProductCategories'}" class="nav-link text-dark">
                       <b>Categories</b>
                   </router-link>
                 </span>
