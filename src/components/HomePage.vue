@@ -41,7 +41,7 @@
 
          <div class="container">
             <div class="row section-two ">
-                <div class="col upcomming">
+                <div class="col upcomming" style="background-image:url('/public/background-image/decorative-frame-wreath-white-roses-floral-arrangement-isolated_273893-4196.avif');background-position:40px;background-repeat:no-repeat;background-color:white;background-position-x:100px">
                  <b>up comming offer</b>
                  <h2><b>your one - stop</b></h2>
                  <h2><b>flower shop</b></h2>
@@ -51,12 +51,12 @@
                     <button class="btn btn-danger ">Learn More</button>
                 </div>
                 <div class="col off">
-                    <div class="col">
+                    <div class="col" style="background-image:url('/public/background-image/luxurious-background-with-deep-red-roses-green-leaves-arranged-right-left-side-image_878783-7337.avif');background-position:40px;background-repeat:no-repeat;background-color:white">
                         <p>up to 30% off</p>
                         <h1><b>Red rose</b></h1>
                         <button class="btn btn-danger">Shop Now</button>
                     </div>
-                    <div class="col ">
+                    <div class="col " style="background-image:url('/public/background-image/luxurious-background-with-deep-red-roses-green-leaves-arranged-right-left-side-image_878783-7337.avif');background-position:40px;background-repeat:no-repeat;background-color:#eff3f4">
                         <p>up to 20% off</p>
                         <h1><b>white rose</b></h1>
                         <button class="btn btn-danger">Shop Now</button>
@@ -67,14 +67,14 @@
 
          <div class="container  mt-5">
             <div class="row section-three">
-                <div class="col-6">
+                <div class="col-6 p-4" style="background-image:url('/public/background-image/white-flower-right-side-white-background-ai-generative_206846-2232.avif');background-position:40px;background-repeat:no-repeat;background-color:#eff3f4">
                     <h1><b>the bloom box your</b></h1>
                     <h1><b>source for stunning</b></h1>
                     <h1><b>flowers</b></h1>
                     <button class="btn btn-danger">Learn More</button>
                 </div>
-                <div class="col-5">
-                    s
+                <div class="col-5 p-4" style="background-image:url('/public/background-image/white-flower-right-side-white-background-ai-generative_206846-2232.avif');background-position:40px;background-repeat:no-repeat;background-color:#eff3f4;">
+                    <h1>Get yours Now!</h1>
                 </div>
             </div>
          </div>

@@ -28,7 +28,7 @@
               <li class="nav-item">
                 <span>
                   <img src="/public/icon/532624_bank_card_checkout_credit_financial_icon.svg" width="25px" alt="">
-                  <router-link :to="{name: 'AdminHome'}" class="nav-link text-dark">
+                  <router-link :to="{name: 'AdminOrders'}" class="nav-link text-dark">
                       <b>Orders</b>
                   </router-link>
                 </span>
@@ -36,12 +36,12 @@
               <li class="nav-item">
                 <span>
                   <img src="/public/icon/8396418_email_mail_message_letter_contact_icon.svg" width="25px" alt="">
-                  <router-link :to="{name: 'AdminHome'}" class="nav-link text-dark">
+                  <router-link :to="{name: 'Reviews'}" class="nav-link text-dark">
                       <b>Reviews</b>
                   </router-link>
                 </span>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <span>
                   <img src="/public/icon/3018581_coupons_currency_deduction_discount_payment_icon.svg" width="25px" alt="">
                   <router-link :to="{name: 'AdminHome'}" class="nav-link text-dark">
@@ -72,7 +72,7 @@
                       <b>Pages</b>
                   </router-link>
                 </span>
-              </li>
+              </li> -->
               
             
         </ul>

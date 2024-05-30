@@ -35,9 +35,9 @@
                             <b>{{ product.product_name }}</b>
                         </span>
                     </td>
-                    <td>{{product.description}}</td>
+                    <td><p>{{product.description}}</p></td>
                     <td>{{ product.quantity }}</td>
-                    <td class="price"><b>{{ product.price}}</b></td>
+                    <td class="price">₱<b>{{ product.price}}</b></td>
                     <td>{{ product.category }}</td>
                     <td>{{ product.size }}</td>
                     <td>
@@ -118,12 +118,17 @@ const deleteProduct = async (id) => {
    margin-right: 20px;
 }
 
+
 td{
     padding:10px;
     border:0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    word-wrap: break-word;
+    text-wrap:wrap;
+    width:10rem;
+    
 }
 
 th{
@@ -162,6 +167,10 @@ table{
 }
 .table-top input{
     max-width:15rem;
+}
+.descriptionTd{
+    width: 10rem;
+    
 }
 
 

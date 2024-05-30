@@ -7,47 +7,41 @@
             <h3>Let us hear from you!</h3>
             <small>we always want to hear from you! Let us know how we can best help you and we'll do our very best</small>
             </div>
-            <form action="" @submit.prevent>
+            <form action="" @submit.prevent="submit">
                 <div class="Name">
                    <div class="row">
                   <div class="col">
                     <label for="">First Name</label>
-                    <input type="text" placeholder="Your Name" class="form-control ">
+                    <input type="text" placeholder="Your Name" class="form-control" v-model="message.first_name">
                   </div>
                   <div class="col">
                     <label for="">Last Name</label>
-                    <input type="text" placeholder="Your Name" class="form-control">
+                    <input type="text" placeholder="Your Name" class="form-control" v-model="message.last_name">
                   </div>
                 </div>
                 </div>
                 <div class="details">
-                    <label for="">Alias: <b class="text-bg-danger">optional</b> </label>
-                    <input type="text" class="form-control" placeholder="Your Alias">
+                    <label for="">Alias: <b class="text-dark">optional</b> </label>
+                    <input type="text" class="form-control" placeholder="Your Alias" v-model="message.alias">
                 </div>
     
                 <div class="contact">
                     <div class="row">
                         <div class="col">
                             <label for="">Email</label>
-                            <input type="text" class="form-control" placeholder="Your Email">
+                            <input type="text" class="form-control" placeholder="Your Email" v-model="message.email">
                         </div>
                         <div class="col">
-                            <label for="">Phone Number</label>
-                            <input type="text" placeholder="Your Number" class="form-control">
+                            <label for="">Phone Number: <b class="text-dark">optional</b></label>
+                            <input type="text" placeholder="Your Number" class="form-control" v-model="message.phone_number">
                         </div>
                     </div>
                 </div>
     
                 <div class="message">
                     <label for="">Message</label>
-                    <textarea name="message" id="" cols="1" rows="10" class="form-control" placeholder="Tell us what we can help you"></textarea>
+                    <textarea name="message" id="" cols="1" rows="10" class="form-control" placeholder="Tell us what we can help you" v-model="message.message"></textarea>
                 </div>
-    
-                <div class="agreement form-check">
-                    <input type="checkbox" class="form-check-input">
-                    <label for="" class="form-check-label">Id like to receive more information about company; I understand and agree to the <a href=""><b>private policy</b></a></label>
-                </div>
-    
                 <div class="submit">
                     <button class="btn btn-primary">Submit</button>
                 </div>
@@ -88,6 +82,7 @@
 
 
 <script setup>
+import axios from 'axios';
 import { onMounted,ref } from 'vue';
 import Header from "./Header.vue";
 
@@ -95,6 +90,24 @@ const slideMe = ref(false)
 onMounted(() => {
  slideMe.value = true
 })
+
+const message = ref({})
+const submit = async () => {
+    await axios.get('/sanctum/csrf-cookie')
+    await axios.post('/api/reviews',{
+        first_name: message.value.first_name,
+        last_name:message.value.last_name,
+        alias:message.value.alias,
+        email:message.value.email,
+        phone_number:message.value.phone_number,
+        message:message.value.message,
+    }).then(response => {
+        if(response.status == 200){
+            message.value = ''
+            alert("Your Message Sent")
+        }
+    })
+}
 
 
 </script>

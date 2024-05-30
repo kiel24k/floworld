@@ -20,11 +20,11 @@
                 <img src="/public/icon/people.png" alt="">
               </router-link>
             </li>
-            <li>
+            <!-- <li>
               <router-link>
                 <img src="/public/icon/notification.png" alt="">
               </router-link>
-            </li>
+            </li> -->
                   <img src="/public/icon/exit.svg" width="30px" alt="" @click="logout">
           </ul>
         </div>
