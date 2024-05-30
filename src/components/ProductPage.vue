@@ -6,7 +6,7 @@
         <section class="container">
             <div class="row exclusive">
                 <div class="col ">
-                    <h1><b>exclusive floral</b></h1>
+                    <h1><b>exclusive flower</b></h1>
                     <h1><b>arrangements</b></h1>
                 </div>
                 <div class="col"><b style="font-size:20px;font-weight:10;">if you find them someplace else, we probably inspired them</b></div>
@@ -41,7 +41,7 @@
                             <img :src="`http://127.0.0.1:8000/products/${flower.image}`" width="200px" height="200px" alt=""></div>
                         <div class="price">
                             <b>{{flower.product_name}}</b>
-                        <p>123.00</p>
+                        <p>₱{{ flower.price }}</p>
                         </div>
                     </router-link>
                     </div>
@@ -181,5 +181,9 @@ section:nth-child(1){
 .flower-item{
     background: rgb(255, 251, 251);
     box-shadow: 0px 0px 5px 0px gray;
+    transition: all linear 0.1s;
+}
+.flower-item:hover{
+   transform: scale(1.1);
 }
 </style>

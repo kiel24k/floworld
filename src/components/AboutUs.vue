@@ -8,7 +8,7 @@
                 <b>Why Choosing Us</b>
             <h2 class="strat-title">Our Strategy is very  personalized</h2>
             <h2>to meet your needs</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, cumque vel recusandae corrupti earum temporibus est ducimus modi blanditiis </p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis, cumque vel recusandae corrupti earum temporibus est ducimus modi blanditiis</p>
             </div>
             <div class="adding-benefit">
                 <div class="benefit">
@@ -87,6 +87,7 @@ section:nth-child(1){
     background: white;
     border-radius: 10px;
     box-shadow: 1px 1px 20px 0px gray;
+    padding:10px;
 }
 .adding-benefit p {
     color:rgb(42, 110, 236);

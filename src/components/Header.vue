@@ -3,7 +3,7 @@
         <div class="col">
             <ul class="navbar nav item-one">
                 <li class="nav-item">
-                   <router-link class="nav-link" :to="{name: 'HomePage'}"> <img src="/public/icon/logo.png" alt="" width="100px" class="img-fluid"></router-link>
+                   <router-link class="nav-link" :to="{name: 'HomePage'}"> <img src="/public/icon/logo.png" alt="" width="80px"></router-link>
                 </li>
             </ul>
         </div>
